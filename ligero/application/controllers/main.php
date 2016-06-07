@@ -4,7 +4,7 @@ class Main extends Controller {
 	
 	function index()
 	{
-<<<<<<< HEAD
+
 	
 		$template = $this->loadView('mainView');
 
@@ -21,13 +21,7 @@ class Main extends Controller {
         )
 );		
 		$template->set('a',$data);
-=======
-                $ejemplo=  $this->loadModel(example_model);
-               echo  $ejemplo->prueba(1);
-		$template = $this->loadView('public/mainView');
-          
-		$template->set('someval', 200);
->>>>>>> a38a8bec38f8eeed92b63dd04b983dfeff357d4c
+
 		$template->render();
 	}
     
