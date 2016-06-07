@@ -1,38 +1,43 @@
 <?php
 
-
 defined('APP_DIR') OR exit('-_- no eres Humano ?');
-
 
 class Controller {
 
-	
-	public function loadModel($name)
-	{
-		require(APP_DIR .'models/'. strtolower($name) .'.php');
+    public function loadModel($name) {
+        require(APP_DIR . 'models/' . strtolower($name) . '.php');
+        $model = new $name;
+        return $model;
+    }
 
-		$model = new $name;
-		return $model;
-	}
-	
-	public function loadView($name)
-	{
-		$view = new View($name);
-		return $view;
-	}
-	
-	public function loadLibs($name)
-	{
-		require(ROOT_DIR .'ligero/system/Libs/'. strtolower($name) .'.php');
-	}
-	
-	public function redirect($loc)
-	{
-		global $config;
-		
-		header('Location: '. $config['base_url'] . $loc);
-	}
-    
+    public function loadView($name) {
+        $view = new View($name);
+        return $view;
+    }
+
+    public function loadPlugin($name) {
+        require(APP_DIR . 'plugins/' . strtolower($name) . '.php');
+    }
+
+    public function redirect($loc) {
+        global $config;
+        echo '<script>window.location ="'. $config['base_url'] . $loc. '"</script>';
+       // header('Location: ' . $config['base_url'] . $loc);
+    }
+
+    public function loadSession($name) {
+        require(ROOT_DIR . 'ligero/system/core/' . strtolower($name) . '.php');
+    }
+
+    public function loadLib($name) {
+        require(ROOT_DIR . 'ligero/system/Lib/' . strtolower($name) . '.php');
+    }
+
+    public function Data($var) {
+        return $_REQUEST[$var];
+    }
+
+
 
 }
 

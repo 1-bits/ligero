@@ -24,9 +24,10 @@ function ligero() {
     // Do our default checks
     if (isset($segments[0]) && $segments[0] != '')
         $controller = $segments[0];
-    if (isset($segments[1]) && $segments[1] != '')
-        $action = $segments[1];
-
+    if (isset($segments[1]) && $segments[1] != '') {
+        $porciones = explode("?", $segments[1]);
+        $action = $porciones[0];
+    }
     // Get our controller file
     $path = APP_DIR . 'controllers/' . $controller . '.php';
     if (file_exists($path)) {
@@ -41,19 +42,15 @@ function ligero() {
         $controller = $config['error_controller'];
         require_once(APP_DIR . 'controllers/' . $controller . '.php');
         $action = 'index';
-    }	
-	
-	// Create object and call method
-	$obj = new $controller;
+    }
 
+    // Create object and call method
+    $obj = new $controller;
     die(call_user_func_array(array($obj, $action), array_slice($segments, 2)));
 }
-function dameURL(){
-    $_host_=$_SERVER['HTTP_HOST'];
-    $urlMedio=str_replace("http://".$_host_."/","",BASE_URL);
-    $_uri_=$_SERVER['REQUEST_URI'];
-    $url=str_replace($urlMedio,"",$_uri_);
 
+function dameURL() {
+    $url = $_SERVER['REQUEST_URI'];
     return $url;
 }
 
