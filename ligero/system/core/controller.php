@@ -21,8 +21,8 @@ class Controller {
 
     public function redirect($loc) {
         global $config;
-        echo '<script>window.location ="'. $config['base_url'] . $loc. '"</script>';
-       // header('Location: ' . $config['base_url'] . $loc);
+        //echo '<script>window.location ="' . $config['base_url'] . $loc . '"</script>';
+        header('Location: ' . $config['base_url'] . $loc);
     }
 
     public function loadSession($name) {
@@ -34,11 +34,10 @@ class Controller {
     }
 
     public function Data($var) {
-        return $_REQUEST[$var];
+        if (isset($_REQUEST[$var])) {
+            return $_REQUEST[$var];
+        } else {
+            return null;
+        }
     }
-
-
-
 }
-
-?>

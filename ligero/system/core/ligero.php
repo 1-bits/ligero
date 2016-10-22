@@ -1,6 +1,4 @@
-<?php
-
-defined('APP_DIR') OR exit('-_- no eres Humano ?');
+<?php defined('APP_DIR') OR exit('-_- no eres Humano ?');
 
 function ligero() {
     global $config;
@@ -15,35 +13,37 @@ function ligero() {
     $script_url = (isset($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : '';
 
     // Get our url path and trim the / of the left and the right
-    if ($request_url != $script_url)
+    if ($request_url != $script_url) {
         $url = trim(preg_replace('/' . str_replace('/', '\/', str_replace('index.php', '', $script_url)) . '/', '', $request_url, 1), '/');
+    }
 
     // Split the url into segments
     $segments = explode('/', $url);
 
     // Do our default checks
-    if (isset($segments[0]) && $segments[0] != '')
-        $controller = $segments[0];
+    if (isset($segments[0]) && $segments[0] != '') {
+        $porciones = explode("?", $segments[0]);
+        $controller = $porciones[0];
+    }
     if (isset($segments[1]) && $segments[1] != '') {
         $porciones = explode("?", $segments[1]);
         $action = $porciones[0];
     }
+   
     // Get our controller file
-    $path = APP_DIR . 'controllers/' . $controller . '.php';
+    $path = APP_DIR . 'controllers/' . strtolower($controller) . '.php';
     if (file_exists($path)) {
         require_once($path);
     } else {
         $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        require_once(APP_DIR . 'controllers/' .strtolower($controller) . '.php');
     }
-
     // Check the action exists
     if (!method_exists($controller, $action)) {
         $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        require_once(APP_DIR . 'controllers/' .strtolower($controller) . '.php');
         $action = 'index';
     }
-
     // Create object and call method
     $obj = new $controller;
     die(call_user_func_array(array($obj, $action), array_slice($segments, 2)));
@@ -53,5 +53,3 @@ function dameURL() {
     $url = $_SERVER['REQUEST_URI'];
     return $url;
 }
-
-?>

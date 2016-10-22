@@ -3,7 +3,7 @@
  *
  * @author      Cesar Darinel Ortiz
  */
-class Error extends Controller {
+class Errores extends Controller {
 	
 	function index()
 	{
