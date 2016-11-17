@@ -14,9 +14,6 @@
     "require": {
         "php": ">=5.0.0"
     },
-   "require": {
-            "ligero/framework": "3.1.*"
-    },
     "autoload": {
         "psr-0": { 
             "Example": "/"
