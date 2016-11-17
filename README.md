@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/ByetsRd/ligero.svg?branch=master)](https://travis-ci.org/ByetsRd/ligero)
 #Ligero
 "Pequeño pero Potente" pretende ser lo más simple posible de configurar y utilizar.
 
