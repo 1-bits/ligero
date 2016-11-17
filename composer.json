@@ -1,0 +1,25 @@
+{
+    "name": "Ligero",
+    "license": "MIT",
+    "description": "Pequeño pero Potente",
+    "keywords": ["Composer",
+                 "Ligero",
+                 "installer"],
+    "authors": [
+        {
+            "name": "Cesardarinel.com",
+            "email": "cesardarinelortiz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.0.0"
+    },
+   "require": {
+            "ligero/framework": "3.1.*"
+    },
+    "autoload": {
+        "psr-0": { 
+            "Example": "/"
+        }
+    }
+}
