@@ -7,15 +7,15 @@
                  "installer"],
     "authors": [
         {
-            "name": "Cesardarinel.com",
-            "email": "cesardarinelortiz@gmail.com"
+            "name": "1bits.org",
+            "email": "admin@1bits.com"
         }
     ],
     "require": {
-        "php": ">=5.0.0"
+        "php": ">=7.0.0"
     },
     "autoload": {
-        "psr-0": { 
+        "psr-0": {
             "Example": "/"
         }
     }

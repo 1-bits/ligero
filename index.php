@@ -10,11 +10,11 @@
  * @since	Version 0.0.1
  */
 
-session_start(); //Inicio de Seccion 
+session_start();
+//Inicio de Seccion
 // Definimos variables de entornos y ruta
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 define('APP_DIR', ROOT_DIR .'ligero/application/');
-
 //Incluimos el Core
 require('config.php');
 require(ROOT_DIR .'ligero/system/core/model.php');
@@ -26,5 +26,5 @@ global $config;
 define('BASE_URL', $config['base_url']);
 //URL para nuestro template
 define('STATIC_URL', $config['base_url'].'ligero/application/views/static/');
-//Arrancamos 
+//Arrancamos
 ligero();
