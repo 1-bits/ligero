@@ -1,5 +1,9 @@
-<?php defined('APP_DIR') OR exit('-_- no eres Humano ?');
-
+<?php 
+/* * 
+ *
+ * @author      Cesar Darinel Ortiz
+ */
+defined('APP_DIR') OR exit('-_- no eres Humano ?');
 class Model {
 
     private $connection;

@@ -1,18 +1,15 @@
-<?php
-
+<?php 
+/* * 
+ *
+ * @author      Cesar Darinel Ortiz
+ */
 defined('APP_DIR') OR exit('-_- no eres Humano ?');
-
 class Controller {
 
     public function loadModel($name) {
         require(APP_DIR . 'models/' . strtolower($name) . '.php');
         $model = new $name;
         return $model;
-    }
-
-    public function loadView($name) {
-        $view = new View($name);
-        return $view;
     }
 
     public function loadPlugin($name) {
