@@ -1,0 +1,12 @@
+/* TEAM */
+	Cesar Darinel Ortiz
+	Contact: admin [at] cesardarinel.com
+	Twitter: @cesardarinel
+	From:Santiago, Republica Dominicana
+
+
+/* SITE */
+	Last update:2018/11/15
+	Language:  Castellano 
+	Doctype:HTML5
+	IDE: VisualStudioCode
